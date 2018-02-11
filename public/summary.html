@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+    <title>Result Data</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="../javascripts/RGraph/libraries/RGraph.common.core.js" ></script>
+    <script src="../javascripts/RGraph/libraries/RGraph.common.dynamic.js" ></script>
+    <script src="../javascripts/RGraph/libraries/RGraph.common.tooltips.js" ></script>
+    <script src="../javascripts/RGraph/libraries/RGraph.pie.js" ></script>
+    <script src="../javascripts/RGraph/libraries/RGraph.drawing.circle.js" ></script>
+    <script src="../javascripts/RGraph/libraries/RGraph.scatter.js" ></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.css">
+    <style>
+        .RGraph_tooltip {
+            font-size: 16pt !important;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+	<a style="float:right" href ="/info"> About </a>
+	
+	<div id ="login" class="wrapper">
+		<div class="container">
+			<!-- Login Form -->
+			<form id="loginForm" class="form">
+				<h1 id="item-h1">Sagar's Quiz Results</h1><br>
+				<h3 id="errorText"></h3>
+				<input id="username" type="text" placeholder="Username">
+				<input id="password" type="password" placeholder="Password">
+				<button type="submit" id="login-button">Login</button>
+			</form>
+		</div>
+		<ul class="bg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div id="summary" style="display:none; width:90%" >
+		<h1>Current Data</h1>
+        <div class="accordion">
+             <h3>Demographics</h3>
+             <div style="background-color:transparent; background: transparent !important;" id="demographics">
+             	<canvas id="age" width="500" height="300">[No canvas support]</canvas>      
+             	<canvas id="eth" width="500" height="300">[No canvas support]</canvas>  
+             	<canvas id="rac" width="500" height="300">[No canvas support]</canvas>  
+             	<canvas id="edu" width="500" height="300">[No canvas support]</canvas>  
+             	<canvas id="zip" width="500" height="300">[No canvas support]</canvas>  
+             	<canvas id="gen" width="500" height="300">[No canvas support]</canvas>  
+             </div>
+        </div>
+        <div class="accordion">
+            <h3>Key Tap Results</h3>
+        </div>
+        <div class="accordion">
+            <h3>Video Results</h3>     
+        </div>
+        <div class="accordion" id = "timelineAccordian">
+            <h3>Audio Results</h3>
+        </div>
+        <div class="accordion" id = "timelineAccordian">
+            <h3>Math Results</h3>
+            <canvas id="math" width="500" height="300">[No canvas support]</canvas>  
+        </div>
+	</div>
+   	<script src="js/summary.js"></script>
+
+</body>
+</html>

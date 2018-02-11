@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html >
+<head>
+	<meta charset="UTF-8">
+    <title>Sagar's Quiz</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+	<a style="float:right" href ="/info"> About </a>
+	
+	<div class="wrapper">
+	<div class="container">
+		
+		<!-- Login Form 
+		<form id="loginForm" class="form">
+			<h1 id="item-h1">Sagar's Quiz</h1><br>
+			<h3 id="errorText"></h3>
+			<input id="username" type="text" placeholder="Username">
+			<input id="password" type="password" placeholder="Password">
+			<button type="submit" id="login-button">Login</button>
+		</form>
+		<br>
+		-->
+		<!-- Welcome screen after login -->
+		<div style="display: block;" id="info" class>
+			<h1 id="item-h1">Welcome!</h1>	
+			<br>
+			<h2> The following interactive exercises will do something.....</h2>
+			<h2> Continue? </h2> <br>
+			<button type="submit" id="cont-button">Continue</button>
+			
+		</div>
+
+		<!-- Information input -->
+		<div style="display: none;" id="userInput" class>
+			<h1 id="item-h1">First, tell us about yourself</h1>	
+			<br>
+			<h2> We need some information about you</h2>
+			<form class="form" style="top:20px">
+				<table style="display:initial">
+					<tr>
+						<td><label for="yearBorn">Year Born</label></td>
+						<td><input id="yearBorn" style="float: right;" type="number" min = "1900" max = "2020" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="yearEdu">Years of Education</label></td>
+						<td><input id="yearEdu" style="float: right;" type="number" min = "0" max = "50" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="edu">Highest Education</label></td>
+						<td>
+							<select id="edu">
+								<option>Not Selected</option>
+								<option>Preschool</option>
+								<option>Elementary</option>
+								<option>Middle School</option>
+								<option>High School</option>
+								<option>Associates</option>
+								<option>Bachelors</option>
+								<option>Masters</option>
+								<option>Doctoral</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="eth">Ethnicity</label></td>
+						<td>
+							<select id="eth">
+								<option>Not Selected</option>
+								<option>Hispanic</option>
+								<option>Non-Hispanic</option>
+								<option>Unknown</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="race">Race</label></td>
+						<td>
+							<select id="race">
+								<option>Not Selected</option>
+								<option>Caucasion</option>
+								<option>Black/African American</option>
+								<option>Native American</option>
+								<option>Asian/Pacific Islander</option>
+								<option>Other</option>
+								<option>Unknown</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="gen">Gender</label></td>
+						<td>
+							<select id="gen">
+								<option>Not Selected</option>
+								<option>Female</option>
+								<option>Male</option>
+								<option>Transgender</option>
+								<option>Other</option>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="zip">Zip Code</label></td>
+						<td><input id="zip" style="float: right;" type="number"><br></td>
+					</tr>
+					<tr>
+						<td><label for="meds">Are you currently prescribed for any of the following medications?</label></td>
+						<td>
+							<input type="checkbox" name="meds" value="psychotropic">Psychotropic Medication (Xanax, Zoloft, Celexa, Prozac, Ativan, Desyrel, Haldol, Thorazine, Trilafon, Stelazine, Serentil, Loxitane, Lexapro, Seroquel, Geodon, Abilify, Risperdal, Clozaril, Prolixin, Navane, Moban)<br>
+							<input type="checkbox" name="meds" value="dopaminergic" checked> Dopaminergic Agents:  agonist (adamantanes, aminotetralins, benzazepine, ergoline, dihydrexidine dervatives), antagonist (typical/atypical antipsychotics, antiemetics) and DA reuptake inhibitors (piperazine, piperidines, tropanes)<br>
+							<input type="checkbox" name="meds" value="none">No<br>
+						</td>
+					</tr>
+					<tr>
+						<td><label for="diagnosis">Are you in current treatment for or diagnosis of DSM-V (American Psychiatric Association, Diagnostic and Statistical Manual of Mental Disorders 5th edition, 2005) Axis I mental illness (e.g., schizophrenia, major depression, bipolar disorder), or diagnosed of a neurocognitive disorder by a physician?</label></td>
+						<td>
+							<input type="radio" name="diagnosis" value="yes">Yes<br>
+							<input type="radio" name="diagnosis" value="no">No<br>
+						</td>
+					</tr>
+				</table>
+				<button type="submit" id="start-button">Continue</button>
+			</form>
+		</div>
+
+		<!-- Task 1: Connect the dots-->
+		<div style="display: none;" id="task1">
+			<h1>Connect The Dots</h1>	
+			<button onClick="startDots()" id="startDots">Go</button>
+			<canvas hidden id="graph" width="380" height="380"></canvas>
+			<div hidden id="timer"></div>
+			<div class="filled"></div>
+			<br>
+			<button hidden id="dotsDone" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 2: Spacebar 9s-->
+		<div style="display: none;" id="task2">
+			<h1>Hold "Z" and Tap "N" for 9 Seconds</h1>	
+			<br><br><br>
+			<div id="z1" style="width: 10%; height: 50px; display: inline-block; margin: 10px;" class="rectangle">
+				<h3> Z </h3>
+			</div>
+			<div id="n1" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
+				<h3> N </h3>
+			</div>
+			<br>
+			<button disabled id= "space1done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 3: Spacebar 30s-->
+		<div style="display: none;" id="task3">
+			<h1>Hold "Z" and Tap "N" for 30 Seconds</h1>	
+			<br><br><br>
+			<div id="z2" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
+				<h3> Z </h3>
+			</div>
+			<div id="n2" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
+				<h3> N </h3>
+			</div>
+			<br>
+			<button disabled id= "space2done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 4: Spacebar 60s-->
+		<div style="display: none;" id="task4">
+			<h1>Hold "Z" and Tap "N" for 60 Seconds</h1>	
+			<br><br><br>
+			<div id="z3" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
+				<h3> Z </h3>
+			</div>
+			<div id="n3" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
+				<h3> N </h3>
+			</div>
+			<br>
+			<button disabled id= "space3done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 5: Video 9s-->
+		<div style="display: none;" id="task5">
+			<h1>Watch The Video</h1>
+			<br>
+			<div id="video1" style="width: 100%; height: 200px">
+				<!-- Insert video -->
+			</div>
+			<form class="form">
+				<label for="videoTime1"> Approximately how long was the video? (In seconds) </label>
+				<input type="number" id="videoTime1" placeholder=0>
+
+			</form>
+			<button hidden id="video1done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 6: Video 30s-->
+		<div style="display: none;" id="task6">
+			<h1>Watch The Video</h1>
+			<br>
+			<div id="video2" style="width: 100%; height: 200px">
+				<!-- Insert video -->
+			</div>
+			<form class="form">
+				<label for="videoTime2"> Approximately how long was the video? (In seconds) </label>
+				<input type="number" id="videoTime2" placeholder=0>
+			</form>
+			<button hidden id="video2done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 7: Video 60s-->
+		<div style="display: none;" id="task7">
+			<h1>Watch The Video</h1>
+			<br>
+			<div id="video3" style="width: 100%; height: 200px">
+				<!-- Insert video -->
+			</div>
+			<form class="form">
+				<label for="videoTime3"> Approximately how long was the video? (In seconds) </label>
+				<input type="number" id="videoTime3" placeholder=0>
+			</form>
+			<button hidden id="video3done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 8: Audio 9s-->
+		<div style="display: none;" id="task8">
+			<h1>Listen to the sound</h1>
+			<br>
+			<div id="audio1" style="width: 100%; height: 200px">
+				<!-- Insert audio -->
+			</div>
+			<form class="form">
+				<label for="audioTime1"> Approximately how long was the audio? (In seconds) </label>
+				<input type="number" id="audioTime1" placeholder=0>
+			</form>
+			<button hidden id="audio1done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 9: Audio 30s-->
+		<div style="display: none;" id="task9">
+			<h1>Watch The Video</h1>
+			<br>
+			<div id="audio2" style="width: 100%; height: 200px">
+				<!-- Insert audio -->
+			</div>
+			<form class="form">
+				<label for="audioTime2"> Approximately how long was the audio? (In seconds) </label>
+				<input type="number" id="audioTime2" placeholder=0>
+			</form>
+			<button hidden id="audio2done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 10: Audio 60s-->
+		<div style="display: none;" id="task10">
+			<h1>Listen to the sound</h1>
+			<br>
+			<div id="audio3" style="width: 100%; height: 200px">
+				<!-- Insert audio -->
+			</div>
+			<form class="form">
+				<label for="audioTime3"> Approximately how long was the audio? (In seconds) </label>
+				<input type="number" id="audioTime3" placeholder=0>
+			</form>
+			<button hidden id="audio3done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 11: Math 1-->
+		<div style="display: none;" id="task11">
+			<h1>Solve as many problems as you can in 30s</h1>
+			<br>
+			<div id="math1" style="width: 100%; padding-top: 10px; display: block">
+				<button id="math1Go">Go</button>
+			</div>
+			<form class="form" hidden id ="mathform1">
+				<input type="text" id="math1-input" placeholder=0>
+				<button type="submit" id="next-math1">Next</button>
+			</form>
+			<button hidden id="math1done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 12: Math 2-->
+		<div style="display: none;" id="task12">
+			<h1>Solve as many problems as you can in 30s</h1>
+			<br>
+			<div id="math2" style="width: 100%; padding-top: 10px; display: block">
+				<button id="math2Go">Go</button>
+			</div>
+			<form class="form" hidden id ="mathform2">
+				<input type="text" id="math2-input" placeholder=0>
+				<button type="submit" id="next-math2">Next</button>
+			</form>
+			<button hidden id="math2done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 13: Math 3-->
+		<div style="display: none;" id="task13">
+			<h1>Solve as many problems as you can in 30s</h1>
+			<br>
+			<div id="math3" style="width: 100%; padding-top: 10px; display: block">				
+				<button id="math3Go">Go</button>
+			</div>
+			<form class="form" hidden id ="mathform3">
+				<input type="text" id="math3-input" placeholder=0>
+				<button type="submit" id="next-math3">Next</button>
+			</form>
+			<button hidden id="math3done" type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 14: Changing Shape 1-->
+		<div style="display: none;" id="task14">
+			<h1>Look at the picture, when the picture changes, hit the right arrow for same, left arrow for different</h1>
+			<br>
+			<div id="pic1" style="width: 100%; height: 100px">
+				
+			</div>
+			<button type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 15: Changing Shape 2-->
+		<div style="display: none;" id="task15">
+			<h1>Look at the picture, when the picture changes, hit the right arrow for same, left arrow for different</h1>
+			<br>
+			<div id="pic2" style="width: 100%; height: 100px">
+
+			</div>
+			<button type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 16: Memory 1-->
+		<div style="display: none;" id="task16">
+			<h1>Remember the number</h1>
+			<br>
+			<div id="memory1" style="width: 100%; display: block">
+				<button id="mem1Go">Go</button>
+				<h1 id="mem1Time" style="font-size: 45px">. . . . . . . . . .</h1>
+			</div>
+		</div>
+
+		<!-- Task 17: Memory 2-->
+		<div style="display: none;" id="task17">
+			<h1>Remember the number</h1>
+			<br>
+			<div id="memory2" style="width: 100%; display: block">
+				<button id="mem2Go">Go</button>
+				<h1 id="mem2Time" style="font-size: 45px">. . . . . . . . . .</h1>
+			</div>
+		</div>
+
+
+		<!-- Task 18: Identify Pic 1-->
+		<div style="display: none;" id="task18">
+			<h1>Identify these pictures</h1>
+			<br>
+			<div id="idPic1" style="width: 100%; height: 200px">
+
+			</div>
+			<button type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+		<!-- Task 19: Identify Pic 2-->
+		<div style="display: none;" id="task19">
+			<h1>Identify these pictures</h1>
+			<br>
+			<div id="idPic2" style="width: 100%; height: 200px">
+
+			</div>
+			<button type="submit" onClick ="nextTask()">Next Task</button>
+		</div>
+
+
+		<!-- Complete -->
+		<div style="display: none;" id="complete">
+			<h1>Congratulations!</h1>
+			<h2>You have completed the Time Perception Exercise<h2>
+			<br>
+			<form class="form">
+				<button type="submit" id="restart-button">Try Again?</button>
+			</form>
+		</div>
+
+		<!-- Bottom div with next/back button -->
+		<br>
+		<div id="navigation" style="display: none;" class="navigation">
+			<div style="display: table; width: 100%">
+				<!--
+				<div style="display: table-row">
+					<div style="display:table-cell; float:right;"><button class="navbutton" type="submit" id="next">Next &#8594</button></div>
+				</div>
+			-->
+				<div id="progress" style="display:block; background-color: #53e3a6; width:0%; height: 15px">
+			</div>
+		</div>
+	</div>
+
+	<ul class="bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+	</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="js/index.js"></script>
+
+</body>
+</html>
