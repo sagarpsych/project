@@ -8,49 +8,100 @@
 
 <body>
 	<a style="float:right" href ="/info"> About </a>
-	
+
 	<div class="wrapper">
 	<div class="container">
-		
-		<!-- Login Form 
-		<form id="loginForm" class="form">
-			<h1 id="item-h1">Sagar's Quiz</h1><br>
-			<h3 id="errorText"></h3>
-			<input id="username" type="text" placeholder="Username">
-			<input id="password" type="password" placeholder="Password">
-			<button type="submit" id="login-button">Login</button>
-		</form>
-		<br>
-		-->
+
 		<!-- Welcome screen after login -->
 		<div style="display: block;" id="info" class>
-			<h1 id="item-h1">Welcome!</h1>	
+			<h1 id="item-h1">Welcome!</h1>
 			<br>
-			<h2> The following interactive exercises will do something.....</h2>
+			<h2> Some Explanatory Text.....</h2>
 			<h2> Continue? </h2> <br>
 			<button type="submit" id="cont-button">Continue</button>
-			
+		</div>
+
+		<!-- Consent-->
+		<div style="display: none;" id="consent" class>
+			<h1>Statement of Consent</h1>
+			<br>
+			<br>
+			<div style="display:block; overflow-y:scroll; height:250px; padding: 20px;color:black; background-color:white">
+				<br>
+				<hr>
+				<p align="left">
+					<br>
+					Project Title: A Neuropsychological Analysis of Temporal Perception Through the Lifespan
+					<br><br>
+					Researcher/Principal Investigator: Sagar S. Lad., MS/MA., CSP, Erlene Rosowsky, PsyD, FGSA
+				</p>
+				<br>
+				<hr>
+				<br>
+				<br>
+				<p align="left">
+					<b>Purpose of the Study:</b> The research is being conducted by Sagar S. Lad, MA/MS., CSP., at William James College in partial fulfillment of a doctoral degree in psychology. I am researching how an individual’s perceptions of day-to-day experiences that can impact everyday life. I am inviting you to participate in this research project because you have indicated that you are 18 years of age or older. This form will provide you with additional information about this study, what will be asked of you and any known risks or benefits that may come from your participation. I encourage you to read this form carefully and ask any questions you may have if you decide to participate, you will be asked to indicate with “I agree” at the bottom of the page for studies conducted online).
+					<br><br>
+					<b>Procedures:</b> In this study you will be asked to complete a brief questionnaire, a cognitive task, and a brief survey that should take no more than 15-20 minutes of your time. You will asked to first fill out general demographic information, then take part of a cognitive task, which will ask you to click “YES” or “NO,” and lastly fill out a survey of your present metacognitive feelings. You can choose to skip any questions that you do not feel comfortable answering or discontinue the questionnaire, cognitive task, and survey at any time.
+					<br><br>
+					<b>Potential Risks and Discomforts:</b> The study involves no more risk than encountered in everyday life.
+					<br>
+					<b>Potential Benefits:</b> Although there are no direct benefits to you, we hope that in the future, other people might benefit from this study to better help understand individual’s perceptions of day-to-day experiences that can impact everyday life.
+					<br><br>
+					<b>Compensation:</b> Should you decide to participate in this study, you will be entered into a raffle to win one of five $25 Amazon gift cards. In order to be included in this raffle at the conclusion of the survey, please send an email to sagar_lad@williamjames.edu with the Subject line: “Raffle”. The raffle entry will in no way be connected to your individual responses. If you decide to stop participation at any time, you are still eligible to email the research for a raffle entry.
+					<br><br>
+					<b>Confidentiality:</b> Throughout the study your information will be kept anonymous. All electronic files will be password protected and encrypted. Only the researcher (MA/MS., CSP), his Doctoral Project Committee (Erlene Rosowsky, PsyD, PGSA; Jason Osher, PhD; Thomas Laudate, PhD) and a HIPAA complaint transcriber will have access to your materials. If a report or article is written about this research project, your identity will be protected to the maximum extent possible. Your information may be shared with representatives of William James College or governmental authorities if you or someone else is in danger or if we are required to do so by law.
+					<br><br>
+					<b>Right to Withdraw and Questions:</b> Your participation in this study is completely voluntary. You may choose not to take part at all. If you decide to participate in this research, you may stop participating at any time without consequences. You are free to skip any of the questions in the metacognitive survey that you may feel uncomfortable answering. Should you decide not to participate in this study or if you stop participating at any time, you are still eligible to email the research for a raffle entry to win one of five $25 Amazon gift cards.
+					<br><br>
+					<b>Participants Rights and Study Contracts:</b> For questions or comments about this research, please contact the primary investigator (Sagar S. Lad, MS/MA., CSP at sagar_lad@williamjames.edu) and his doctoral project chair (Erlene Rosowsky, PsyD, FGSA at Erlene_rosowsky@williamjames.edu)
+					<br><br>
+					The research has been reviewed and approved according to the William James College IRB procedures for research involving human subjects.
+					<br><br>
+					If you have questions or concerns regarding your rights as a participant in this study, or if you wish to report a concern or complaint, you may contact:
+					<br><br>
+			  </p>
+				<p align="center">
+					Dr. Edward De Vos <br>
+					Institutional Review Board (IRB) Chair<br>
+					William James College<br>
+					1 Wells Ave,<br>
+					Newton, MA 02459<br>
+					E-mail: Edward_devose@williamjames.edu or irb@williamjames.edu
+					<br><br><br>
+				</p>
+			</div>
+			<br>
+			<br>
+			<h2>
+			By selecting “I agree” below you are indicating that you are at least 18 years of age; you have read this consent form or have had it read to you; your questions have been answered to your satisfaction and you voluntarily agree to participate in this research study. Please print a copy of this page for your records.
+		</h2>
+		<br>
+		<br>
+		<button id="agree" type="submit" onClick ="consent('agree')">I Agree</button>
+		<button id="disagree" type="submit" onClick ="consent('disagree')">I Disagree</button>
+
 		</div>
 
 		<!-- Information input -->
 		<div style="display: none;" id="userInput" class>
-			<h1 id="item-h1">First, tell us about yourself</h1>	
+			<h1 id="item-h1">First, tell us about yourself</h1>
 			<br>
 			<h2> We need some information about you</h2>
-			<form class="form" style="top:20px">
+			<form class="form" action="javascript:void(0);" style="top:20px">
 				<table style="display:initial">
 					<tr>
-						<td><label for="yearBorn">Year Born</label></td>
-						<td><input id="yearBorn" style="float: right;" type="number" min = "1900" max = "2020" step="1"></td>
+						<td><label for="age">Age</label></td>
+						<td><input id="age" style="float: right;" type="number" min = "0" max = "120" step="1" required></td>
 					</tr>
 					<tr>
 						<td><label for="yearEdu">Years of Education</label></td>
-						<td><input id="yearEdu" style="float: right;" type="number" min = "0" max = "50" step="1"></td>
+						<td><input id="yearEdu" style="float: right;" type="number" min = "0" max = "50" step="1" required></td>
 					</tr>
 					<tr>
 						<td><label for="edu">Highest Education</label></td>
 						<td>
-							<select id="edu">
+							<select id="edu" required>
 								<option>Not Selected</option>
 								<option>Preschool</option>
 								<option>Elementary</option>
@@ -64,20 +115,9 @@
 						</td>
 					</tr>
 					<tr>
-						<td><label for="eth">Ethnicity</label></td>
-						<td>
-							<select id="eth">
-								<option>Not Selected</option>
-								<option>Hispanic</option>
-								<option>Non-Hispanic</option>
-								<option>Unknown</option>
-							</select>
-						</td>
-					</tr>
-					<tr>
 						<td><label for="race">Race</label></td>
 						<td>
-							<select id="race">
+							<select id="race" required>
 								<option>Not Selected</option>
 								<option>Caucasion</option>
 								<option>Black/African American</option>
@@ -91,7 +131,7 @@
 					<tr>
 						<td><label for="gen">Gender</label></td>
 						<td>
-							<select id="gen">
+							<select id="gender" required>
 								<option>Not Selected</option>
 								<option>Female</option>
 								<option>Male</option>
@@ -101,279 +141,123 @@
 						</td>
 					</tr>
 					<tr>
-						<td><label for="zip">Zip Code</label></td>
-						<td><input id="zip" style="float: right;" type="number"><br></td>
-					</tr>
-					<tr>
-						<td><label for="meds">Are you currently prescribed for any of the following medications?</label></td>
+						<td><label for="diagnosis">Are you currently diagnosed for any mental health issues (e.g., schizophrenia, major depression, bipolar disorder, dementia)?</label></td>
 						<td>
-							<input type="checkbox" name="meds" value="psychotropic">Psychotropic Medication (Xanax, Zoloft, Celexa, Prozac, Ativan, Desyrel, Haldol, Thorazine, Trilafon, Stelazine, Serentil, Loxitane, Lexapro, Seroquel, Geodon, Abilify, Risperdal, Clozaril, Prolixin, Navane, Moban)<br>
-							<input type="checkbox" name="meds" value="dopaminergic" checked> Dopaminergic Agents:  agonist (adamantanes, aminotetralins, benzazepine, ergoline, dihydrexidine dervatives), antagonist (typical/atypical antipsychotics, antiemetics) and DA reuptake inhibitors (piperazine, piperidines, tropanes)<br>
-							<input type="checkbox" name="meds" value="none">No<br>
+							<input type="radio" id="diagnosis" value="yes" required><p>Yes</p>
+							<input type="radio" id="diagnosis" value="no"><p>No</p>
 						</td>
 					</tr>
 					<tr>
-						<td><label for="diagnosis">Are you in current treatment for or diagnosis of DSM-V (American Psychiatric Association, Diagnostic and Statistical Manual of Mental Disorders 5th edition, 2005) Axis I mental illness (e.g., schizophrenia, major depression, bipolar disorder), or diagnosed of a neurocognitive disorder by a physician?</label></td>
+						<td><label for="medicine">Are you currently prescribed any medication for mental or physical health? </label></td>
 						<td>
-							<input type="radio" name="diagnosis" value="yes">Yes<br>
-							<input type="radio" name="diagnosis" value="no">No<br>
+							<input type="radio" id="medicine" value="yes" required><p>Yes</p>
+							<input type="radio" id="medicine" value="no"><p>No</p>
 						</td>
 					</tr>
 				</table>
-				<button type="submit" id="start-button">Continue</button>
+				<button id="start-button">Continue</button>
 			</form>
 		</div>
 
-		<!-- Task 1: Connect the dots-->
-		<div style="display: none;" id="task1">
-			<h1>Connect The Dots</h1>	
-			<button onClick="startDots()" id="startDots">Go</button>
-			<canvas hidden id="graph" width="380" height="380"></canvas>
-			<div hidden id="timer"></div>
-			<div class="filled"></div>
+		<!-- Task Introduction-->
+		<div style="display: none;" id="taskInfo" class>
+			<h1 id="item-h1">This cognitive task will assess your ability to perceive and pay attention. You will be presented with a visual image of a circle. Please pay attention to the best of your ability.</h1>
 			<br>
-			<button hidden id="dotsDone" type="submit" onClick ="nextTask()">Next Task</button>
+			<button type="submit" id="task-cont-button">Continue</button>
 		</div>
 
-		<!-- Task 2: Spacebar 9s-->
-		<div style="display: none;" id="task2">
-			<h1>Hold "Z" and Tap "N" for 9 Seconds</h1>	
-			<br><br><br>
-			<div id="z1" style="width: 10%; height: 50px; display: inline-block; margin: 10px;" class="rectangle">
-				<h3> Z </h3>
-			</div>
-			<div id="n1" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
-				<h3> N </h3>
-			</div>
+		<!-- Task Circle-->
+		<div style="display: none;" id="reference">
+			<h1 id="refInfo">For the first part of the task, you will be asked to concentrate on a image (circle) which will appear on the screen. This will be the standard duration that you will use for the rest of the task. You will be shown this circle twice.</h1>
 			<br>
-			<button disabled id= "space1done" type="submit" onClick ="nextTask()">Next Task</button>
+			<button id="refStart" type="submit">Start</button>
+			<svg id="circleRef" style="display:none" height="300" width="100%">
+				<circle cx="50%" cy="50%" r="100" stroke="white" fill="aquamarine" />
+			</svg>
+			<button style ="display:none;" id="refRepeat" type="submit">Replay Reference</button>
+			<h1 id="preTask" style ="display:none;">For this next part you will be shown random circles with varying or similar lengths of time. After you see the image disappear, you will directed to another screen will asked to respond “YES” if the stimulus is equal to the standard duration or “NO” if the stimulus is not equal to the standard duration.</h1>
+			<br>
+			<button style ="display:none;" id="refDone" type="submit">Continue</button>
+		</div>
+		<!-- Task Circle-->
+		<div style="display: none;" id="task">
+			<br>
+			<button style="display:none;" id="taskStart" type="submit">Start</button>
+			<svg id="circleTask" style="display:none" height="300" width="100%">
+				<circle cx="50%" cy="50%" r="100" stroke="white" fill="aquamarine" />
+			</svg>
+			<div style ="display:none;" id="circleForm" class="circleForm">
+				<h2 for="circleTime">Was the stimulus is equal to the standard duration?</h2>
+				<button id="4no" type="submit" onClick ="resetTask('no')">No</button>
+				<button id="4yes" type="submit" onClick ="resetTask('yes')">Yes</button>
+			</div>
 		</div>
 
-		<!-- Task 3: Spacebar 30s-->
-		<div style="display: none;" id="task3">
-			<h1>Hold "Z" and Tap "N" for 30 Seconds</h1>	
-			<br><br><br>
-			<div id="z2" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
-				<h3> Z </h3>
-			</div>
-			<div id="n2" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
-				<h3> N </h3>
-			</div>
+		<!-- Post questionaire  -->
+		<div style="display: none;" id="postQuest" class>
+			<h2 id="item-h1">You have completed the cognitive task. You will now be directed to answer some general questions.</h2>
 			<br>
-			<button disabled id= "space2done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
+			<p> Instructions: For each of the statements, indicate what YOU think as spontaneously and honestly as possible. <br>Responses are given on a five-point scale: 1=Totally Agree, 2= Agree, 3=Do not know, 4=Disagree, and 5= Totally Disagree.</p>
+			<form class="form" style="top:20px">
+				<table style="display:initial">
+					<tr>
+						<td><label for="s1">Being able to organize my activities in time is important for me</label></td>
+						<td><input required id="s1" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
 
-		<!-- Task 4: Spacebar 60s-->
-		<div style="display: none;" id="task4">
-			<h1>Hold "Z" and Tap "N" for 60 Seconds</h1>	
-			<br><br><br>
-			<div id="z3" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
-				<h3> Z </h3>
-			</div>
-			<div id="n3" style="width: 10%; height: 50px; display: inline-block; margin: 10px" class="rectangle">
-				<h3> N </h3>
-			</div>
-			<br>
-			<button disabled id= "space3done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
+						<td><label for="s2">The more I focus attention on time, the quicker time passes.</label></td>
+						<td><input required id="s2" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="s3">The more that I am fascinated by what I am doing, the more slowly time passes.</label></td>
+						<td><input required id="s3" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
 
-		<!-- Task 5: Video 9s-->
-		<div style="display: none;" id="task5">
-			<h1>Watch The Video</h1>
-			<br>
-			<div id="video1" style="width: 100%; height: 200px">
-				<!-- Insert video -->
-			</div>
-			<form class="form">
-				<label for="videoTime1"> Approximately how long was the video? (In seconds) </label>
-				<input type="number" id="videoTime1" placeholder=0>
+						<td><label for="s4">When I am bored, I feel time passes more slowly.</label></td>
+						<td><input required id="s4" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="s5">When I am waiting, I feel time pass slowly.</label></td>
+						<td><input required id="s5" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
 
+						<td><label for="s6">When I am happy, I feel time passes more quickly.</label></td>
+						<td><input required id="s6" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="s7">When I am sad, I feel that I have slowed down.</label></td>
+						<td><input required id="s7" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+
+						<td><label for="s8">When I am sad, I feel time passes more quickly.</label></td>
+						<td><input required id="s8" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="s9">When I am doing a pleasant activity, I feel time passes more quickly.</label></td>
+						<td><input required id="s9" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+
+						<td><label for="s10">In the presence of joyful person, I feel time passes more quickly.</label></td>
+						<td><input required id="s10" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+					</tr>
+					<tr>
+						<td><label for="s11">When I am with children, I feel time passes more slowly.</label></td>
+						<td><input required id="s11" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+
+						<td><label for="s12">When I have pain somewhere, I feel time passes more quickly.</label></td>
+						<td><input required id="s12" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+					</tr>
+				</table>
+				<button type="submit" id="end-button">Finish</button>
 			</form>
-			<button hidden id="video1done" type="submit" onClick ="nextTask()">Next Task</button>
 		</div>
-
-		<!-- Task 6: Video 30s-->
-		<div style="display: none;" id="task6">
-			<h1>Watch The Video</h1>
-			<br>
-			<div id="video2" style="width: 100%; height: 200px">
-				<!-- Insert video -->
-			</div>
-			<form class="form">
-				<label for="videoTime2"> Approximately how long was the video? (In seconds) </label>
-				<input type="number" id="videoTime2" placeholder=0>
-			</form>
-			<button hidden id="video2done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 7: Video 60s-->
-		<div style="display: none;" id="task7">
-			<h1>Watch The Video</h1>
-			<br>
-			<div id="video3" style="width: 100%; height: 200px">
-				<!-- Insert video -->
-			</div>
-			<form class="form">
-				<label for="videoTime3"> Approximately how long was the video? (In seconds) </label>
-				<input type="number" id="videoTime3" placeholder=0>
-			</form>
-			<button hidden id="video3done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 8: Audio 9s-->
-		<div style="display: none;" id="task8">
-			<h1>Listen to the sound</h1>
-			<br>
-			<div id="audio1" style="width: 100%; height: 200px">
-				<!-- Insert audio -->
-			</div>
-			<form class="form">
-				<label for="audioTime1"> Approximately how long was the audio? (In seconds) </label>
-				<input type="number" id="audioTime1" placeholder=0>
-			</form>
-			<button hidden id="audio1done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 9: Audio 30s-->
-		<div style="display: none;" id="task9">
-			<h1>Watch The Video</h1>
-			<br>
-			<div id="audio2" style="width: 100%; height: 200px">
-				<!-- Insert audio -->
-			</div>
-			<form class="form">
-				<label for="audioTime2"> Approximately how long was the audio? (In seconds) </label>
-				<input type="number" id="audioTime2" placeholder=0>
-			</form>
-			<button hidden id="audio2done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 10: Audio 60s-->
-		<div style="display: none;" id="task10">
-			<h1>Listen to the sound</h1>
-			<br>
-			<div id="audio3" style="width: 100%; height: 200px">
-				<!-- Insert audio -->
-			</div>
-			<form class="form">
-				<label for="audioTime3"> Approximately how long was the audio? (In seconds) </label>
-				<input type="number" id="audioTime3" placeholder=0>
-			</form>
-			<button hidden id="audio3done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 11: Math 1-->
-		<div style="display: none;" id="task11">
-			<h1>Solve as many problems as you can in 30s</h1>
-			<br>
-			<div id="math1" style="width: 100%; padding-top: 10px; display: block">
-				<button id="math1Go">Go</button>
-			</div>
-			<form class="form" hidden id ="mathform1">
-				<input type="text" id="math1-input" placeholder=0>
-				<button type="submit" id="next-math1">Next</button>
-			</form>
-			<button hidden id="math1done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 12: Math 2-->
-		<div style="display: none;" id="task12">
-			<h1>Solve as many problems as you can in 30s</h1>
-			<br>
-			<div id="math2" style="width: 100%; padding-top: 10px; display: block">
-				<button id="math2Go">Go</button>
-			</div>
-			<form class="form" hidden id ="mathform2">
-				<input type="text" id="math2-input" placeholder=0>
-				<button type="submit" id="next-math2">Next</button>
-			</form>
-			<button hidden id="math2done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 13: Math 3-->
-		<div style="display: none;" id="task13">
-			<h1>Solve as many problems as you can in 30s</h1>
-			<br>
-			<div id="math3" style="width: 100%; padding-top: 10px; display: block">				
-				<button id="math3Go">Go</button>
-			</div>
-			<form class="form" hidden id ="mathform3">
-				<input type="text" id="math3-input" placeholder=0>
-				<button type="submit" id="next-math3">Next</button>
-			</form>
-			<button hidden id="math3done" type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 14: Changing Shape 1-->
-		<div style="display: none;" id="task14">
-			<h1>Look at the picture, when the picture changes, hit the right arrow for same, left arrow for different</h1>
-			<br>
-			<div id="pic1" style="width: 100%; height: 100px">
-				
-			</div>
-			<button type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 15: Changing Shape 2-->
-		<div style="display: none;" id="task15">
-			<h1>Look at the picture, when the picture changes, hit the right arrow for same, left arrow for different</h1>
-			<br>
-			<div id="pic2" style="width: 100%; height: 100px">
-
-			</div>
-			<button type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 16: Memory 1-->
-		<div style="display: none;" id="task16">
-			<h1>Remember the number</h1>
-			<br>
-			<div id="memory1" style="width: 100%; display: block">
-				<button id="mem1Go">Go</button>
-				<h1 id="mem1Time" style="font-size: 45px">. . . . . . . . . .</h1>
-			</div>
-		</div>
-
-		<!-- Task 17: Memory 2-->
-		<div style="display: none;" id="task17">
-			<h1>Remember the number</h1>
-			<br>
-			<div id="memory2" style="width: 100%; display: block">
-				<button id="mem2Go">Go</button>
-				<h1 id="mem2Time" style="font-size: 45px">. . . . . . . . . .</h1>
-			</div>
-		</div>
-
-
-		<!-- Task 18: Identify Pic 1-->
-		<div style="display: none;" id="task18">
-			<h1>Identify these pictures</h1>
-			<br>
-			<div id="idPic1" style="width: 100%; height: 200px">
-
-			</div>
-			<button type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
-		<!-- Task 19: Identify Pic 2-->
-		<div style="display: none;" id="task19">
-			<h1>Identify these pictures</h1>
-			<br>
-			<div id="idPic2" style="width: 100%; height: 200px">
-
-			</div>
-			<button type="submit" onClick ="nextTask()">Next Task</button>
-		</div>
-
 
 		<!-- Complete -->
 		<div style="display: none;" id="complete">
-			<h1>Congratulations!</h1>
-			<h2>You have completed the Time Perception Exercise<h2>
+			<h2>Thank you for your participation in the following study. I appreciate the time you have taken out of your day. This study hopes to understand individual’s perceptions of time. If you feel you would like assistance please contact William James College or research@williamjames.edu. In the case of an emergency please call 911.” If you have questions about this project or if you have a research-related problem, you may contact the researcher Sagar S. Lad., MS/MA., CSP at sagar_lad@williamjames.edu. If you have questions or concerns regarding your rights as a participant in this study, or if you wish to report a concern or complaint, you may contact:!</h2>
+			<h3>Dr. Edward De Vos<br>
+				Institutional Review Board (IRB) Chair<br>
+				William James College<br>
+				1 Wells Ave,<br>
+				Newton, MA 02459<br>
+				E-mail: Edward_devose@williamjames.edu or irb@williamjames.edu
+			<h3>
 			<br>
-			<form class="form">
-				<button type="submit" id="restart-button">Try Again?</button>
-			</form>
 		</div>
 
 		<!-- Bottom div with next/back button -->
