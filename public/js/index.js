@@ -5,8 +5,7 @@ var data = {
 	education: null,
 	race: null,
 	gender: null,
-	diagnosis: null,
-	results: {}
+	diagnosis: null
 }
 // Global variables
 var fadeTime = 300; var numTasks = 20;
@@ -45,10 +44,13 @@ $("#next").click(function(event){
 });
 
 function resetTask(answer){
-	if(!data.results[lastDur]){
-		data.results[lastDur] = [];
+	var result = lastDur === 4 ? (answer === "yes" ? "hit" : "miss") : (answer === "yes" ? "false positive" : "correct rejection")
+	if(data[lastDur+"_1"]){
+		data[lastDur+"_2"] = result;
 	}
-	data.results[lastDur].push(answer);
+	else{
+		data[lastDur+"_1"] = result;
+	}
 	if(completeTasks.length ===1){
 		$("#taskStart").html("Next");
 	}
@@ -84,7 +86,6 @@ function nextTask(){
  		$('#task').fadeOut(fadeTime, function(){
  			$('#postQuest').fadeIn(fadeTime);
  			$('#navigation').fadeOut(fadeTime);
- 			sendResults();
  		});
 	}
 	updateProgress();
@@ -120,7 +121,6 @@ $("#start-button").click(function(event){
  	data.gender = $('#gender').val();
  	data.diagnosis = $('#diagnosis').val();
  	data.medicine = $('#medicine').val();
-	console.log(data)
 	if(!data.age || !data.yearsEdu || ! data.education | !data.race| !data.gender | !data.diagnosis | !data.medicine){
 		 return;
 	}
@@ -173,9 +173,17 @@ $("#taskStart").click(function(event){
 });
 
 $("#end-button").click(function(event){
+	for(var i=1; i<13; i++){
+		data["s"+i] = $('#s' +i).val();
+		if(!$('#s' +i).val()){
+			return;
+		}
+	}
+	console.log(data)
 	event.preventDefault();
  	$('#postQuest').fadeOut(fadeTime, function(){
  		$('#complete').fadeIn(fadeTime);
+		sendResults();
 	});
 });
 
