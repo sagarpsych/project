@@ -15,18 +15,15 @@
 		<!-- Welcome screen after login -->
 		<div style="display: block;" id="info" class>
 			<h1 id="item-h1">Welcome!</h1>
-			<br>
-			<h2> Some Explanatory Text.....</h2>
-			<h2> Continue? </h2> <br>
+			<h2>My name is Sagar Lad and I am a 4th year doctoral student in the Clinical Psychology program at William James College (formerly known as Massachusetts School of Professional Psychology-MSPP). You were directed to this page because of your interest in participating in a study concerning an individual’s perceptions of day-to-day experiences that can impact everyday life. This brief task and a short survey, together will take about 15-20 minutes of your time. All participants will have the opportunity to participate in a raffle for a chance to win one of five $25 Amazon gift cards. Confidentiality of all participants will be protected, and all responses will be anonymous. To participate in this study you must be 18 years of age and older. If you are interested in participating please click the next button to continue. Thank you so much for your participation and taking your time to help me complete my doctoral requirement.<br><br>-Sagar S. Lad, MS/MA., CSP</h2>
+			<h2> Continue? </h2>
 			<button type="submit" id="cont-button">Continue</button>
 		</div>
 
 		<!-- Consent-->
 		<div style="display: none;" id="consent" class>
 			<h1>Statement of Consent</h1>
-			<br>
-			<br>
-			<div style="display:block; overflow-y:scroll; height:250px; padding: 20px;color:black; background-color:white">
+			<div style="display:block; overflow-y:scroll; height:450px; margin: 20px; padding: 20px;color:black; background-color:white">
 				<br>
 				<hr>
 				<p align="left">
@@ -73,7 +70,7 @@
 			</div>
 			<br>
 			<br>
-			<h2>
+			<h2 style="margin:20px">
 			By selecting “I agree” below you are indicating that you are at least 18 years of age; you have read this consent form or have had it read to you; your questions have been answered to your satisfaction and you voluntarily agree to participate in this research study. Please print a copy of this page for your records.
 		</h2>
 		<br>
@@ -86,31 +83,36 @@
 		<!-- Information input -->
 		<div style="display: none;" id="userInput" class>
 			<h1 id="item-h1">First, tell us about yourself</h1>
-			<br>
-			<h2> We need some information about you</h2>
-			<form class="form" action="javascript:void(0);" style="top:20px">
-				<table style="display:initial">
+			<form class="form" action="javascript:void(0);" style="width:60%; margin: 0 auto;">
+				<table style="display:initial;" cellpadding="10" cellspacing="10">
 					<tr>
 						<td><label for="age">Age</label></td>
-						<td><input id="age" style="float: right;" type="number" min = "0" max = "120" step="1" required></td>
+						<td>
+							<select id="age" required>
+								<option value=""html>Not Selected</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td><label for="yearEdu">Years of Education</label></td>
-						<td><input id="yearEdu" style="float: right;" type="number" min = "0" max = "50" step="1" required></td>
+						<td>
+							<select id="yearEdu" required>
+								<option value="">Not Selected</option>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td><label for="edu">Highest Education</label></td>
 						<td>
 							<select id="edu" required>
-								<option>Not Selected</option>
-								<option>Preschool</option>
+								<option value="">Not Selected</option>
 								<option>Elementary</option>
 								<option>Middle School</option>
 								<option>High School</option>
 								<option>Associates</option>
 								<option>Bachelors</option>
 								<option>Masters</option>
-								<option>Doctoral</option>
+								<option>Doctoral (i.e., MD, JD, PsyD, PhD etc.)</option>
 							</select>
 						</td>
 					</tr>
@@ -118,7 +120,7 @@
 						<td><label for="race">Race</label></td>
 						<td>
 							<select id="race" required>
-								<option>Not Selected</option>
+								<option value="">Not Selected</option>
 								<option>Caucasion</option>
 								<option>Black/African American</option>
 								<option>Native American</option>
@@ -132,7 +134,7 @@
 						<td><label for="gen">Gender</label></td>
 						<td>
 							<select id="gender" required>
-								<option>Not Selected</option>
+								<option value="">Not Selected</option>
 								<option>Female</option>
 								<option>Male</option>
 								<option>Transgender</option>
@@ -141,20 +143,21 @@
 						</td>
 					</tr>
 					<tr>
-						<td><label for="diagnosis">Are you currently diagnosed for any mental health issues (e.g., schizophrenia, major depression, bipolar disorder, dementia)?</label></td>
+						<td><label for="diagnosis" style="width:100px">Have you been formally diagnosed with any mental health issues?</label></td>
 						<td>
-							<input type="radio" id="diagnosis" value="yes" required><p>Yes</p>
-							<input type="radio" id="diagnosis" value="no"><p>No</p>
+							<input type="radio" name="diagnosis" value="yes" required><p>Yes</p>
+							<input type="radio" name="diagnosis" value="no"><p>No</p>
 						</td>
 					</tr>
 					<tr>
 						<td><label for="medicine">Are you currently prescribed any medication for mental or physical health? </label></td>
 						<td>
-							<input type="radio" id="medicine" value="yes" required><p>Yes</p>
-							<input type="radio" id="medicine" value="no"><p>No</p>
+							<input type="radio" name="medicine" value="yes" required><p>Yes</p>
+							<input type="radio" name="medicine" value="no"><p>No</p>
 						</td>
 					</tr>
 				</table>
+				<br><br>
 				<button id="start-button">Continue</button>
 			</form>
 		</div>
@@ -168,23 +171,26 @@
 
 		<!-- Task Circle-->
 		<div style="display: none;" id="reference">
-			<h1 id="refInfo">For the first part of the task, you will be asked to concentrate on a image (circle) which will appear on the screen. This will be the standard duration that you will use for the rest of the task. You will be shown this circle twice.</h1>
+			<h1 id="refInfo">For the first part of the task, you will be asked to concentrate on an image (circle) that will appear on the screen. The image will be visible for a standard duration that will be used for the rest of the tasks. You will be shown this reference circle twice.</h1>
 			<br>
-			<button id="refStart" type="submit">Start</button>
+			<button id="refStart" type="submit">Show Reference Image</button>
 			<svg id="circleRef" style="display:none" height="300" width="100%">
-				<circle cx="50%" cy="50%" r="100" stroke="white" fill="aquamarine" />
+				<circle cx="50%" cy="50%" r="100" stroke="white" fill="white" />
 			</svg>
-			<button style ="display:none;" id="refRepeat" type="submit">Replay Reference</button>
-			<h1 id="preTask" style ="display:none;">For this next part you will be shown random circles with varying or similar lengths of time. After you see the image disappear, you will directed to another screen will asked to respond “YES” if the stimulus is equal to the standard duration or “NO” if the stimulus is not equal to the standard duration.</h1>
+			<button style ="display:none;" id="refRepeat" type="submit">Replay Reference Image</button>
+			<h1 id="preTask" style ="display:none;">For this next part, you will be shown the same image of a circle but for varying or similar lengths of time. After you see the image disappear, you will be asked if the image was shown for the standard duration established during the reference.  Please respond “YES” if the stimulus was equal to the standard duration or “NO” if the stimulus was not equal to the standard duration.</h1>
 			<br>
 			<button style ="display:none;" id="refDone" type="submit">Continue</button>
 		</div>
 		<!-- Task Circle-->
 		<div style="display: none;" id="task">
 			<br>
-			<button style="display:none;" id="taskStart" type="submit">Start</button>
+			<div style="display:none;" id="taskStart" class="circleForm">
+				<h2>Press the button when you are ready to move on</h2>
+				<button id="taskStartButton" type="submit">Start</button>
+			</div>
 			<svg id="circleTask" style="display:none" height="300" width="100%">
-				<circle cx="50%" cy="50%" r="100" stroke="white" fill="aquamarine" />
+				<circle cx="50%" cy="50%" r="100" stroke="white" fill="white" />
 			</svg>
 			<div style ="display:none;" id="circleForm" class="circleForm">
 				<h2 for="circleTime">Was the stimulus is equal to the standard duration?</h2>
@@ -196,51 +202,112 @@
 		<!-- Post questionaire  -->
 		<div style="display: none;" id="postQuest" class>
 			<h2 id="item-h1">You have completed the cognitive task. You will now be directed to answer some general questions.</h2>
-			<br>
-			<p> Instructions: For each of the statements, indicate what YOU think as spontaneously and honestly as possible. <br>Responses are given on a five-point scale: 1=Totally Agree, 2= Agree, 3=Do not know, 4=Disagree, and 5= Totally Disagree.</p>
-			<form class="form" action="javascript:void(0);" style="top:20px">
-				<table style="display:initial">
+			<p> Instructions: For each of the statements, indicate what YOU think as spontaneously and honestly as possible.</p>
+			<form class="form" action="javascript:void(0);">
+				<table style="display:initial" cellpadding="10" cellspacing="10" >
+					<tr>
+						<td></td>
+						<td width=6%>Totally Agree</td>
+						<td width=6%>Agree</td>
+						<td width=6%>Do Not Know</td>
+						<td width=6%>Disagree</td>
+						<td width=6%>Totally Disagree</td>
+					</tr>
 					<tr>
 						<td><label for="s1">Being able to organize my activities in time is important for me</label></td>
-						<td><input required id="s1" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
-
+						<td><input type="radio" name="s1" value="1" required></td>
+.						<td><input type="radio" name="s1" value="2"></td>
+						<td><input type="radio" name="s1" value="3"></td>
+						<td><input type="radio" name="s1" value="4"></td>
+						<td><input type="radio" name="s1" value="5"></td>
+					</tr>
+					<tr>	
 						<td><label for="s2">The more I focus attention on time, the quicker time passes.</label></td>
-						<td><input required id="s2" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+						<td><input type="radio" name="s2" value="1" required></td>
+.						<td><input type="radio" name="s2" value="2"</td>
+						<td><input type="radio" name="s2" value="3"></td>
+						<td><input type="radio" name="s2" value="4"></td>
+						<td><input type="radio" name="s2" value="5"></td>
 					</tr>
 					<tr>
 						<td><label for="s3">The more that I am fascinated by what I am doing, the more slowly time passes.</label></td>
-						<td><input required id="s3" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
-
+						<td><input type="radio" name="s3" value="1" required></td>
+						<td><input type="radio" name="s3" value="2"></td>
+						<td><input type="radio" name="s3" value="3"></td>
+						<td><input type="radio" name="s3" value="4"></td>
+						<td><input type="radio" name="s3" value="5"></td>
+					</tr>
+					<tr>	
 						<td><label for="s4">When I am bored, I feel time passes more slowly.</label></td>
-						<td><input required id="s4" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+						<td><input type="radio" name="s4" value="1" required></td>
+.						<td><input type="radio" name="s4" value="2"></td>
+						<td><input type="radio" name="s4" value="3"></td>
+						<td><input type="radio" name="s4" value="4"></td>
+						<td><input type="radio" name="s4" value="5"></td>
 					</tr>
 					<tr>
 						<td><label for="s5">When I am waiting, I feel time pass slowly.</label></td>
-						<td><input required id="s5" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
-
+						<td><input type="radio" name="s5" value="1" required></td>
+.						<td><input type="radio" name="s5" value="2"></td>
+						<td><input type="radio" name="s5" value="3"></td>
+						<td><input type="radio" name="s5" value="4"></td>
+						<td><input type="radio" name="s5" value="5"></td>
+					</tr>
+					<tr>	
 						<td><label for="s6">When I am happy, I feel time passes more quickly.</label></td>
-						<td><input required id="s6" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+						<td><input type="radio" name="s6" value="1" required></td>
+.						<td><input type="radio" name="s6" value="2"></td>
+						<td><input type="radio" name="s6" value="3"></td>
+						<td><input type="radio" name="s6" value="4"></td>
+						<td><input type="radio" name="s6" value="5"></td>
 					</tr>
 					<tr>
 						<td><label for="s7">When I am sad, I feel that I have slowed down.</label></td>
-						<td><input required id="s7" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
-
+						<td><input type="radio" name="s7" value="1" required></td>
+.						<td><input type="radio" name="s7" value="2"></td>
+						<td><input type="radio" name="s7" value="3"></td>
+						<td><input type="radio" name="s7" value="4"></td>
+						<td><input type="radio" name="s7" value="5"></td>
+					</tr>
+					<tr>	
 						<td><label for="s8">When I am sad, I feel time passes more quickly.</label></td>
-						<td><input required id="s8" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+						<td><input type="radio" name="s8" value="1" required></td>
+.						<td><input type="radio" name="s8" value="2"></td>
+						<td><input type="radio" name="s8" value="3"></td>
+						<td><input type="radio" name="s8" value="4"></td>
+						<td><input type="radio" name="s8" value="5"></td>
 					</tr>
 					<tr>
 						<td><label for="s9">When I am doing a pleasant activity, I feel time passes more quickly.</label></td>
-						<td><input required id="s9" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
-
+						<td><input type="radio" name="s9" value="1" required></td>
+.						<td><input type="radio" name="s9" value="2"></td>
+						<td><input type="radio" name="s9" value="3"></td>
+						<td><input type="radio" name="s9" value="4"></td>
+						<td><input type="radio" name="s9" value="5"></td>
+					</tr>
+					<tr>	
 						<td><label for="s10">In the presence of joyful person, I feel time passes more quickly.</label></td>
-						<td><input required id="s10" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+						<td><input type="radio" name="s10" value="1" required></td>
+.						<td><input type="radio" name="s10" value="2"></td>
+						<td><input type="radio" name="s10" value="3"></td>
+						<td><input type="radio" name="s10" value="4"></td>
+						<td><input type="radio" name="s10" value="5"></td>
 					</tr>
 					<tr>
 						<td><label for="s11">When I am with children, I feel time passes more slowly.</label></td>
-						<td><input required id="s11" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
-
+						<td><input type="radio" name="s11" value="1" required></td>
+.						<td><input type="radio" name="s11" value="2"></td>
+						<td><input type="radio" name="s11" value="3"></td>
+						<td><input type="radio" name="s11" value="4"></td>
+						<td><input type="radio" name="s11" value="5"></td>
+					</tr>
+					<tr>	
 						<td><label for="s12">When I have pain somewhere, I feel time passes more quickly.</label></td>
-						<td><input required id="s12" style="float: right;" type="number" min = "0" max = "5" step="1"></td>
+						<td><input type="radio" name="s12" value="1" required></td>
+.						<td><input type="radio" name="s12" value="2"></td>
+						<td><input type="radio" name="s12" value="3"></td>
+						<td><input type="radio" name="s12" value="4"></td>
+						<td><input type="radio" name="s12" value="5"></td>
 					</tr>
 				</table>
 				<button type="submit" id="end-button">Finish</button>
@@ -257,35 +324,14 @@
 				Newton, MA 02459<br>
 				E-mail: Edward_devose@williamjames.edu or irb@williamjames.edu
 			<h3>
+			<h2>Raffle: If you would like to be entered into a raffle to win one of five $25 Amazon gift cards. Please send an email to sagar_lad@williamjames.edu with the Subject line: "Raffle". The raffle entry will in no way be connected to your individual responses.</h2
 			<br>
 		</div>
 
 		<!-- Bottom div with next/back button -->
 		<br>
-		<div id="navigation" style="display: none;" class="navigation">
-			<div style="display: table; width: 100%">
-				<!--
-				<div style="display: table-row">
-					<div style="display:table-cell; float:right;"><button class="navbutton" type="submit" id="next">Next &#8594</button></div>
-				</div>
-			-->
-				<div id="progress" style="display:block; background-color: #53e3a6; width:0%; height: 15px">
-			</div>
 		</div>
 	</div>
-
-	<ul class="bg-bubbles">
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-	</ul>
 
 	</div>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

@@ -8,10 +8,32 @@ var data = {
 	diagnosis: null
 }
 // Global variables
-var fadeTime = 300; var numTasks = 20;
+var fadeTime = 300; var numTasks = 2;
 var standardDur = 400;
 var completeTasks = [];
 var lastDur = null;
+
+// initialize
+
+var select = document.getElementById("age");
+for(var i=18; i<100; i++){
+	var option = document.createElement("option");
+	option.text = i;
+	option.value = i;
+	select.options.add(option);
+}
+
+select = document.getElementById("yearEdu");
+for(var i=0; i<16; i++){
+	var option = document.createElement("option");
+	option.text = i;
+	option.value = i;
+	select.options.add(option);
+}
+var option = document.createElement("option");
+option.text = "17+";
+option.value = "17+";
+select.options.add(option);
 
 function sendResults(){
 	console.log(data)
@@ -52,12 +74,13 @@ function resetTask(answer){
 		data[lastDur+"_1"] = result;
 	}
 	if(completeTasks.length ===1){
-		$("#taskStart").html("Next");
+		$("#taskStartButton").html("Next");
 	}
 	$("#circleForm").fadeOut(fadeTime, function(){
 		$('#taskStart').fadeIn(fadeTime);
 	});
 }
+
 function nextTask(){
 	if(completeTasks.length < numTasks){
 		lastDur =  Math.floor(Math.random() * numTasks) +1;
@@ -92,7 +115,7 @@ function nextTask(){
 }
 
 function consent(answer){
-	console.log("anser")
+	console.log("answer")
 	if(answer === 'agree'){
 		$('#consent').fadeOut(fadeTime, function(){
 	 		$('#userInput').fadeIn(fadeTime);
@@ -119,8 +142,9 @@ $("#start-button").click(function(event){
  	data.education = $('#edu').val();
  	data.race = $('#race').val();
  	data.gender = $('#gender').val();
- 	data.diagnosis = $('#diagnosis').val();
- 	data.medicine = $('#medicine').val();
+ 	data.diagnosis = $('input[name=diagnosis]:checked').val();
+ 	data.medicine = $('input[name=medicine]:checked').val();
+ 	console.log(JSON.stringify(data))
 	if(!data.age || !data.yearsEdu || ! data.education | !data.race| !data.gender | !data.diagnosis | !data.medicine){
 		 return;
 	}
@@ -174,8 +198,8 @@ $("#taskStart").click(function(event){
 
 $("#end-button").click(function(event){
 	for(var i=1; i<13; i++){
-		data["s"+i] = $('#s' +i).val();
-		if(!$('#s' +i).val()){
+		data["s"+i] = $('input[name=s'+i+']:checked').val();
+		if(!data["s"+i]){
 			return;
 		}
 	}
