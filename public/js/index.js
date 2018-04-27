@@ -8,7 +8,7 @@ var data = {
 	diagnosis: null
 }
 // Global variables
-var fadeTime = 300; var numTasks = 20;
+var fadeTime = 400; var numTasks = 20;
 var standardDur = 400;
 var completeTasks = [];
 var lastDur = null;
@@ -16,7 +16,7 @@ var lastDur = null;
 // initialize
 
 var select = document.getElementById("age");
-for(var i=18; i<100; i++){
+for(var i=18; i<=100; i++){
 	var option = document.createElement("option");
 	option.text = i;
 	option.value = i;
@@ -24,7 +24,7 @@ for(var i=18; i<100; i++){
 }
 
 select = document.getElementById("yearEdu");
-for(var i=0; i<16; i++){
+for(var i=0; i<=16; i++){
 	var option = document.createElement("option");
 	option.text = i;
 	option.value = i;
@@ -77,40 +77,33 @@ function resetTask(answer){
 		$("#taskStartButton").html("Next");
 	}
 	$("#circleForm").fadeOut(fadeTime, function(){
-		$('#taskStart').fadeIn(fadeTime);
+		if(completeTasks.length < numTasks){
+			$('#taskStart').fadeIn(fadeTime);
+		}
+		else{
+			console.log("Completed tasks")
+			$('#task').fadeOut(fadeTime, function(){
+				$('#postQuest').fadeIn(fadeTime);
+				$('#navigation').fadeOut(fadeTime);
+			});
+		}
 	});
 }
 
 function nextTask(){
-	if(completeTasks.length < numTasks){
-		lastDur =  Math.floor(Math.random() * numTasks) +1;
-		while(completeTasks.indexOf(lastDur)>=0){
-			lastDur =  Math.floor(Math.random() * numTasks)+1;
-		}
-		completeTasks.push(lastDur)
-		if(lastDur >10){lastDur -=10;}
-		console.log(lastDur)
+	lastDur =  Math.floor(Math.random() * numTasks) +1;
+	while(completeTasks.indexOf(lastDur)>=0){
+		lastDur =  Math.floor(Math.random() * numTasks)+1;
+	}
+	completeTasks.push(lastDur)
+	if(lastDur >10){lastDur -=10;}
+	console.log(lastDur)
 
-		$("#taskStart").hide();
-	 	$('#circleTask').show().delay(lastDur*100).fadeOut(fadeTime, function(){
-	 		$('#circleForm').fadeIn(fadeTime);
+	$("#taskStart").fadeOut(fadeTime, function(){
+		$('#circleTask').delay(fadeTime*2).fadeIn().delay(lastDur*100).fadeOut(fadeTime, function(){
+			$('#circleForm').delay(fadeTime*2).fadeIn(fadeTime);
 		});
-		/*
-		console.log("Entering task "+lastDur)
- 		$('#task').fadeOut(fadeTime, function(){
- 			$('#taskStart').show();
- 			$('#task').fadeIn(fadeTime);
- 		});
- 		console.log(data)
-		*/
-	}
-	else{
-		console.log("Completed tasks")
- 		$('#task').fadeOut(fadeTime, function(){
- 			$('#postQuest').fadeIn(fadeTime);
- 			$('#navigation').fadeOut(fadeTime);
- 		});
-	}
+	});
 	updateProgress();
 }
 
@@ -167,27 +160,29 @@ $("#task-cont-button").click(function(event){
 
 $("#refStart").click(function(event){
 	event.preventDefault();
-	$("#refStart").hide();
- 	$('#circleRef').show().delay(standardDur).fadeOut(fadeTime, function(){
- 		$('#refRepeat').fadeIn(fadeTime);
+	$("#refStart").fadeOut(fadeTime, function(){
+		$('#circleRef').delay(fadeTime*2).fadeIn().delay(standardDur).fadeOut(fadeTime, function(){
+			$('#refRepeat').delay(fadeTime*2).fadeIn(fadeTime);
+		});
 	});
 });
 
 $("#refRepeat").click(function(event){
 	event.preventDefault();
-	$("#refRepeat").hide();
- 	$('#circleRef').show().delay(standardDur).fadeOut(fadeTime, function(){
-		$("#refInfo").hide();
-		$('#preTask').fadeIn(fadeTime);
- 		$('#refDone').fadeIn(fadeTime);
+	$("#refRepeat").fadeOut(fadeTime, function(){
+		$('#circleRef').delay(fadeTime*2).fadeIn().delay(standardDur).fadeOut(fadeTime, function(){
+			$("#refInfo").delay(fadeTime*2).fadeOut(fadeTime, function(){
+				$('#preTask').fadeIn(fadeTime);
+			});
+		});
 	});
 });
 
 $("#refDone").click(function(event){
 	event.preventDefault();
-	$("#reference").fadeOut(fadeTime, function(){
+	$("#reference").delay(fadeTime).fadeOut(fadeTime, function(){
 		$('#task').fadeIn(fadeTime);
-		$('#taskStart').show()
+		$('#taskStart').fadeIn(fadeTime);
 	});
 });
 
