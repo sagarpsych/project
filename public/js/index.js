@@ -8,7 +8,7 @@ var data = {
 	diagnosis: null
 }
 // Global variables
-var fadeTime = 300; var numTasks = 2;
+var fadeTime = 300; var numTasks = 20;
 var standardDur = 400;
 var completeTasks = [];
 var lastDur = null;
