@@ -12,9 +12,10 @@
 
 		<!-- Welcome screen after login -->
 		<div style="display: block;" id="info" class>
+			<img src="images/photo.jpeg" style="float:right; width:200px">
+			<br>
 			<h1 id="item-h1">Welcome!</h1>
-			<h2>My name is Sagar Lad and I am a 4th year doctoral student in the Clinical Psychology program at William James College (formerly known as Massachusetts School of Professional Psychology-MSPP). You were directed to this page because of your interest in participating in a study concerning an individual’s perceptions of day-to-day experiences that can impact everyday life. This brief task and a short survey, together will take about 15-20 minutes of your time. All participants will have the opportunity to participate in a raffle for a chance to win one of five $25 Amazon gift cards. Confidentiality of all participants will be protected, and all responses will be anonymous. To participate in this study you must be 18 years of age and older. If you are interested in participating please click the next button to continue. Thank you so much for your participation and taking your time to help me complete my doctoral requirement.<br><br>-Sagar S. Lad, MS/MA., CSP</h2>
-			<h2> Continue? </h2>
+			<h2>My name is Sagar Lad and I am a 4th year doctoral student in the Clinical Psychology program at William James College (formerly known as Massachusetts School of Professional Psychology-MSPP). You were directed to this page because of your interest in participating in a study concerning an individual’s perceptions of day-to-day experiences that can impact everyday life. This brief task and a short survey, together will take about 15-20 minutes of your time. All participants will have the opportunity to participate in a raffle for a chance to win one of five $25 Amazon gift cards. Confidentiality of all participants will be protected, and all responses will be anonymous. To participate in this study you must be 18 years of age and older. If you are interested in participating please click the continue button to continue. Thank you so much for your participation and taking your time to help me complete my doctoral requirement.<br><br>-Sagar S. Lad, MS/MA., CSP</h2>
 			<button type="submit" id="cont-button">Continue</button>
 		</div>
 
@@ -55,7 +56,7 @@
 					<br><br>
 					If you have questions or concerns regarding your rights as a participant in this study, or if you wish to report a concern or complaint, you may contact:
 					<br><br>
-			  </p>
+				</p>
 				<p align="center">
 					Dr. Edward De Vos <br>
 					Institutional Review Board (IRB) Chair<br>
@@ -68,14 +69,11 @@
 			</div>
 			<br>
 			<br>
-			<h2>
-			By selecting “I agree” below you are indicating that you are at least 18 years of age; you have read this consent form or have had it read to you; your questions have been answered to your satisfaction and you voluntarily agree to participate in this research study. Please print a copy of this page for your records.
-		</h2>
-		<br>
-		<br>
-		<button id="agree" type="submit" onClick ="consent('agree')">I Agree</button>
-		<button id="disagree" type="submit" onClick ="consent('disagree')">I Disagree</button>
-
+			<h2>By selecting “I agree” below you are indicating that you are at least 18 years of age; you have read this consent form or have had it read to you; your questions have been answered to your satisfaction and you voluntarily agree to participate in this research study. Please print a copy of this page for your records.</h2>
+			<br>
+			<br>
+			<button id="agree" type="submit" onClick ="consent('agree')">I Agree</button>
+			<button id="disagree" type="submit" onClick ="consent('disagree')">I Disagree</button>
 		</div>
 
 		<!-- Information input -->
@@ -172,8 +170,8 @@
 			<h1 id="refInfo">For the first part of the task, you will be asked to concentrate on an image (circle) that will appear on the screen. The image will be visible for a standard duration that will be used for the rest of the tasks. You will be shown this reference circle twice.</h1>
 			<br>
 			<button id="refStart" type="submit">Show Reference Image</button>
-			<svg id="circleRef" style="display:none" height="300" width="100%">
-				<circle cx="50%" cy="50%" r="100" stroke="white" fill="white" />
+			<svg id="circleRef" style="display:none" height="400" width="100%">
+				<circle cx="50%" cy="50%" r="180" stroke="#FFFCE1" fill="#FFFCE1" />
 			</svg>
 			<button style ="display:none;" id="refRepeat" type="submit">Replay Reference Image</button>
 			<div id="preTask" style="display:none">
@@ -189,8 +187,8 @@
 				<h1>Press the button when you are ready for the next image</h1>
 				<button id="taskStartButton" type="submit">Start</button>
 			</div>
-			<svg id="circleTask" style="display:none" height="300" width="100%">
-				<circle cx="50%" cy="50%" r="100" stroke="white" fill="white" />
+			<svg id="circleTask" style="display:none" height="400" width="100%">
+				<circle cx="50%" cy="50%" r="180" stroke="#FFFCE1" fill="#FFFCE1" />
 			</svg>
 			<div style ="display:none;" id="circleForm" class="circleForm">
 				<h1 for="circleTime">Was the stimulus is equal to the standard duration?</h1>
@@ -203,204 +201,25 @@
 		<div style="display: none;" id="postQuest" class>
 			<h1 id="item-h1">You have completed the cognitive task. Please answer some general questions.</h1>
 			<h2>Instructions: For each of the statements, indicate what YOU think as spontaneously and honestly as possible.</h2>
-			<form class="form" action="javascript:void(0);">
-				<table style="display:initial" cellspacing="5">
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>
-						<td><h2>Being able to organize my activities in time is important for me</h2></td>
-						<td><input type="radio" name="s1" value="1" required></td>
-.						<td><input type="radio" name="s1" value="2"></td>
-						<td><input type="radio" name="s1" value="3"></td>
-						<td><input type="radio" name="s1" value="4"></td>
-						<td><input type="radio" name="s1" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>	
-						<td><h2>The more I focus attention on time, the quicker time passes.</h2></td>
-						<td><input type="radio" name="s2" value="1" required></td>
-.						<td><input type="radio" name="s2" value="2"</td>
-						<td><input type="radio" name="s2" value="3"></td>
-						<td><input type="radio" name="s2" value="4"></td>
-						<td><input type="radio" name="s2" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>
-						<td><h2>The more that I am fascinated by what I am doing, the more slowly time passes.</label></td>
-						<td><input type="radio" name="s3" value="1" required></td>
-						<td><input type="radio" name="s3" value="2"></td>
-						<td><input type="radio" name="s3" value="3"></td>
-						<td><input type="radio" name="s3" value="4"></td>
-						<td><input type="radio" name="s3" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>	
-						<td><h2>When I am bored, I feel time passes more slowly.</h2></td>
-						<td><input type="radio" name="s4" value="1" required></td>
-.						<td><input type="radio" name="s4" value="2"></td>
-						<td><input type="radio" name="s4" value="3"></td>
-						<td><input type="radio" name="s4" value="4"></td>
-						<td><input type="radio" name="s4" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>
-						<td><h2>When I am waiting, I feel time pass slowly.</h2></td>
-						<td><input type="radio" name="s5" value="1" required></td>
-.						<td><input type="radio" name="s5" value="2"></td>
-						<td><input type="radio" name="s5" value="3"></td>
-						<td><input type="radio" name="s5" value="4"></td>
-						<td><input type="radio" name="s5" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>	
-						<td><h2>When I am happy, I feel time passes more quickly.</h2></td>
-						<td><input type="radio" name="s6" value="1" required></td>
-.						<td><input type="radio" name="s6" value="2"></td>
-						<td><input type="radio" name="s6" value="3"></td>
-						<td><input type="radio" name="s6" value="4"></td>
-						<td><input type="radio" name="s6" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>
-						<td><h2>When I am sad, I feel that I have slowed down.</h2></td>
-						<td><input type="radio" name="s7" value="1" required></td>
-.						<td><input type="radio" name="s7" value="2"></td>
-						<td><input type="radio" name="s7" value="3"></td>
-						<td><input type="radio" name="s7" value="4"></td>
-						<td><input type="radio" name="s7" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>	
-						<td><h2>When I am sad, I feel time passes more quickly.</h2></td>
-						<td><input type="radio" name="s8" value="1" required></td>
-.						<td><input type="radio" name="s8" value="2"></td>
-						<td><input type="radio" name="s8" value="3"></td>
-						<td><input type="radio" name="s8" value="4"></td>
-						<td><input type="radio" name="s8" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>
-						<td><h2>When I am doing a pleasant activity, I feel time passes more quickly.</h2></td>
-						<td><input type="radio" name="s9" value="1" required></td>
-.						<td><input type="radio" name="s9" value="2"></td>
-						<td><input type="radio" name="s9" value="3"></td>
-						<td><input type="radio" name="s9" value="4"></td>
-						<td><input type="radio" name="s9" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>	
-						<td><h2>In the presence of joyful person, I feel time passes more quickly.</h2></td>
-						<td><input type="radio" name="s10" value="1" required></td>
-.						<td><input type="radio" name="s10" value="2"></td>
-						<td><input type="radio" name="s10" value="3"></td>
-						<td><input type="radio" name="s10" value="4"></td>
-						<td><input type="radio" name="s10" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>
-						<td><h2>When I am with children, I feel time passes more slowly.</h2></td>
-						<td><input type="radio" name="s11" value="1" required></td>
-.						<td><input type="radio" name="s11" value="2"></td>
-						<td><input type="radio" name="s11" value="3"></td>
-						<td><input type="radio" name="s11" value="4"></td>
-						<td><input type="radio" name="s11" value="5"></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td width=6%><h3>Totally Agree</h3></td>
-						<td width=6%><h3>Agree</h3></td>
-						<td width=6%><h3>Do Not Know</h3></td>
-						<td width=6%><h3>Disagree</h3></td>
-						<td width=6%><h3>Totally Disagree</h3></td>
-					</tr>
-					<tr>	
-						<td><h2>When I have pain somewhere, I feel time passes more quickly.</h2></td>
-						<td><input type="radio" name="s12" value="1" required></td>
-.						<td><input type="radio" name="s12" value="2"></td>
-						<td><input type="radio" name="s12" value="3"></td>
-						<td><input type="radio" name="s12" value="4"></td>
-						<td><input type="radio" name="s12" value="5"></td>
-					</tr>
-				</table>
-				<br><br>
-				<button type="submit" id="end-button">Finish</button>
-			</form>
+			<h1 id="survey-text">Being able to organize my activities in time is important for me</h1>
+			<table style="display:initial" cellspacing="5">
+				<tr>
+					<td width=20%><h2>Totally Agree</h2></td>
+					<td width=20%><h2>Agree</h2></td>
+					<td width=20%><h2>Do Not Know</h2></td>
+					<td width=20%><h2>Disagree</h2></td>
+					<td width=20%><h2>Totally Disagree</h2></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="survey" value="1" required></td>
+.					<td><input type="radio" name="survey" value="2"></td>
+					<td><input type="radio" name="survey" value="3"></td>
+					<td><input type="radio" name="survey" value="4"></td>
+					<td><input type="radio" name="survey" value="5"></td>
+				</tr>
+			</table>
+			<br><br>
+			<button type="submit" id="next-survey-button">Next</button>
 		</div>
 
 		<!-- Complete -->

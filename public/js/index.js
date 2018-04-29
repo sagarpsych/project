@@ -12,6 +12,21 @@ var fadeTime = 400; var numTasks = 20;
 var standardDur = 400;
 var completeTasks = [];
 var lastDur = null;
+var questions = [
+	"Being able to organize my activities in time is important for me",
+	"The more I focus attention on time, the quicker time passes",
+	"The more that I am fascinated by what I am doing, the more slowly time passes",
+	"When I am bored, I feel time passes more slowly",
+	"When I am waiting, I feel time pass slowly",
+	"When I am happy, I feel time passes more quickly",
+	"When I am sad, I feel that I have slowed down",	
+	"When I am sad, I feel time passes more quickly",
+	"When I am doing a pleasant activity, I feel time passes more quickly",
+	"In the presence of joyful person, I feel time passes more quickly",
+	"When I am with children, I feel time passes more slowly",
+	"When I have pain somewhere, I feel time passes more quickly"
+];
+var sIndex = 0;
 
 // initialize
 
@@ -191,19 +206,32 @@ $("#taskStart").click(function(event){
 	nextTask();
 });
 
-$("#end-button").click(function(event){
-	for(var i=1; i<13; i++){
-		data["s"+i] = $('input[name=s'+i+']:checked').val();
-		if(!data["s"+i]){
+$("#next-survey-button").click(function(event){
+	if(sIndex <12){
+		val = $('input[name=survey]:checked').val();
+		if(!val){
 			return;
 		}
+		else{
+			sIndex++;
+			data["s"+sIndex] = val;
+			$("#survey-text").html(questions[sIndex]);
+			$("input[name=survey]:checked").attr('checked',false);
+		}
 	}
-	console.log(data)
-	event.preventDefault();
- 	$('#postQuest').fadeOut(fadeTime, function(){
- 		$('#complete').fadeIn(fadeTime);
-		sendResults();
-	});
+	console.log(sIndex)
+	if(sIndex === 11){
+		$("#next-survey-button").html("Finish");
+	}
+	if(sIndex === 12){
+		console.log(data)
+		event.preventDefault();
+		$('#postQuest').fadeOut(fadeTime, function(){
+				$('#complete').fadeIn(fadeTime);
+			sendResults();
+		});
+	}
+	
 });
 
 $("#restart-button").click(function(event){
