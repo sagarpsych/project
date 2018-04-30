@@ -68,7 +68,7 @@ form {
 form input {
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 55, 99, 0.2);
   width: 250px;
   border-radius: 3px;
   padding: 10px 15px;
@@ -87,7 +87,7 @@ form select {
           appearance: none;
   outline: 0;
   border: 1px solid rgba(255, 255, 255, 0.4);
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(0, 55, 98, 0.2);
   width: 250px;
   border-radius: 3px;
   padding: 10px 15px;
@@ -101,7 +101,7 @@ form select {
   font-weight: 300;
 }
 form input:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 55, 98, 0.4);
 }
 form input:focus {
   background-color: #FFFCE1;
@@ -152,29 +152,6 @@ button:hover{
 }
 button:disabled{
   background-color: #6e918e
-}
-.shaded{
-  background-color: #dfe6ec;
-}
-@-webkit-keyframes square {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-700px) rotate(600deg);
-            transform: translateY(-700px) rotate(600deg);
-  }
-}
-@keyframes square {
-  0% {
-    -webkit-transform: translateY(0);
-            transform: translateY(0);
-  }
-  100% {
-    -webkit-transform: translateY(-700px) rotate(600deg);
-            transform: translateY(-700px) rotate(600deg);
-  }
 }
 
 #graph {

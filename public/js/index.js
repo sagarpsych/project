@@ -22,7 +22,7 @@ var questions = [
 	"When I am sad, I feel that I have slowed down",	
 	"When I am sad, I feel time passes more quickly",
 	"When I am doing a pleasant activity, I feel time passes more quickly",
-	"In the presence of joyful person, I feel time passes more quickly",
+	"In the presence of a joyful person, I feel time passes more quickly",
 	"When I am with children, I feel time passes more slowly",
 	"When I have pain somewhere, I feel time passes more quickly"
 ];
@@ -37,7 +37,7 @@ for(var i=18; i<=100; i++){
 	option.value = i;
 	select.options.add(option);
 }
-
+/*
 select = document.getElementById("yearEdu");
 for(var i=0; i<=16; i++){
 	var option = document.createElement("option");
@@ -49,6 +49,7 @@ var option = document.createElement("option");
 option.text = "17+";
 option.value = "17+";
 select.options.add(option);
+*/
 
 function sendResults(){
 	console.log(data)
@@ -146,14 +147,14 @@ $("#cont-button").click(function(event){
 
 $("#start-button").click(function(event){
 	data.age = $('#age').val();
-	data.yearsEdu = $('#yearEdu').val();
+	//data.yearsEdu = $('#yearEdu').val();
  	data.education = $('#edu').val();
  	data.race = $('#race').val();
  	data.gender = $('#gender').val();
- 	data.diagnosis = $('input[name=diagnosis]:checked').val();
- 	data.medicine = $('input[name=medicine]:checked').val();
+ 	//data.diagnosis = $('input[name=diagnosis]:checked').val();
+ 	//data.medicine = $('input[name=medicine]:checked').val();
  	console.log(JSON.stringify(data))
-	if(!data.age || !data.yearsEdu || ! data.education | !data.race| !data.gender | !data.diagnosis | !data.medicine){
+	if(!data.age || ! data.education || !data.race || !data.gender){
 		 return;
 	}
 	$('#userInput').fadeOut(fadeTime, function(){
