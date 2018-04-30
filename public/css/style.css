@@ -140,6 +140,11 @@ input[type="radio" i] {
   margin: 10px;
   width: 40px;
   height: 40px;
+}
+form input[type="radio" i] {
+  margin: 10px;
+  width: 40px;
+  height: 40px;
   float: left;
 }
 form p{
