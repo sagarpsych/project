@@ -151,10 +151,10 @@ $("#start-button").click(function(event){
  	data.education = $('#edu').val();
  	data.race = $('#race').val();
  	data.gender = $('#gender').val();
- 	//data.diagnosis = $('input[name=diagnosis]:checked').val();
- 	//data.medicine = $('input[name=medicine]:checked').val();
+ 	data.diagnosis = $('input[name=diagnosis]:checked').val();
+ 	data.medicine = $('input[name=medicine]:checked').val();
  	console.log(JSON.stringify(data))
-	if(!data.age || ! data.education || !data.race || !data.gender){
+	if(!data.age || ! data.education || !data.race || !data.gender || !data.medicine || !data.diagnosis){
 		 return;
 	}
 	$('#userInput').fadeOut(fadeTime, function(){
